@@ -17,7 +17,8 @@ export class WeatherService {
   static ICON_URL = 'https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-hdpi/';
   private currentConditions: ConditionsAndZip[] = [];
   listenRemoveZipcode$ = new Subject<string>();
-  storageTime: string = '0';
+  // The storage time default is 7200 seconds (2hours).
+  storageTime: string = '7200';
   destroyApi$ = new Subject();
 
   constructor(private http: HttpClient) {
