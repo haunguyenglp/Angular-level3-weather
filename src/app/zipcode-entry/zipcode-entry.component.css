@@ -1,0 +1,31 @@
+.wrapper{
+  display: flex;
+  gap: 20px;
+}
+
+.flex-1{
+  flex: 1;
+}
+
+.flex-2{
+  flex: 2;
+}
+
+.message{
+  color: #ff4545;
+  display: block;
+  visibility: hidden;
+}
+
+.error{
+  visibility: visible;
+}
+
+.ml-10{
+  margin-left: 10px;
+}
+
+.btn-cancel{
+  background-color: #ff9838;
+  color: #fff;
+}

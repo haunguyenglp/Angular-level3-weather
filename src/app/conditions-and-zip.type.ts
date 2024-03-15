@@ -4,3 +4,14 @@ export interface ConditionsAndZip {
     zip: string;
     data: CurrentConditions;
 }
+
+export interface ActionData {
+    actionType: string;
+    zipcode?: string;
+    indexCondition?: number;
+}
+
+export const COOKIE = {
+    CONDITIONS: 'conditions-',
+    FORECAST: 'forecast-'
+}

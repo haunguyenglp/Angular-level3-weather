@@ -1,8 +1,31 @@
-<div class="well">
-  <h2>Enter a zipcode:</h2>
-  <input type="text" #zipcode placeholder="Zipcode" class="form-control">
-  <br>
-  <button class="btn btn-primary" (click)="addLocation(zipcode.value)" >
-    Add location
-  </button>
+<div class="wrapper">
+  <div class="well flex-2">
+    <h3>Enter a zipcode:</h3>
+    <input type="text" #zipcode placeholder="Zipcode" class="form-control">
+    <br>
+    <button class="btn btn-primary" (click)="addLocation(zipcode.value)" >
+      Add location
+    </button>
+  </div>
+  <div class="well flex-1">
+    <ng-container *ngIf="mode === Mode.Normal; else showEditTime">
+      <div class="storage-time">
+        <h3>Data storage time is {{timesValue}}s.</h3>
+        <button class="btn btn-primary" (click)="onEditTime()">
+          Click to edit time
+        </button>
+      </div>
+    </ng-container>
+    <ng-template #showEditTime>
+      <h3>Set data storage time (seconds):</h3>
+      <input #times [(ngModel)]="timesValue" placeholder="Enter time" class="form-control" (input)="timeChange(times.value)">
+      <span class="message" [ngClass]="{ 'error': hasError }">Please enter numbers, not letters.</span>
+      <button [disabled]="!timesValue || hasError" class="btn btn-primary" (click)="onSetTime()" >
+        OK
+      </button>
+      <button class="btn ml-10 btn-cancel" (click)="cancelEdit()" >
+        Cancel
+      </button>
+    </ng-template>
+  </div>
 </div>
